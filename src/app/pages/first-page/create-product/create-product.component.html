@@ -1,0 +1,40 @@
+<mat-card style="margin: 20px;">
+  <mat-card-header>
+      <mat-card-title *ngIf="product.productId">Edit Product</mat-card-title>
+      <mat-card-title *ngIf="!product.productId">New Product</mat-card-title>
+    </mat-card-header>
+<mat-card-content>
+  <form>
+    <mat-form-field class="fullWidth">
+      <input [(ngModel)]="product.driverId" name="driverId" matInput placeholder="Driver Id" />
+    </mat-form-field>
+    <mat-form-field  class="fullWidth">
+      <input [(ngModel)]="product.productName" name="productName" matInput placeholder="Product Name" />
+    </mat-form-field>
+
+    <mat-form-field  class="fullWidth">
+      <input [(ngModel)]="product.version" name="version" matInput placeholder="Version" />
+    </mat-form-field>
+    <mat-form-field  class="fullWidth">
+      <input [(ngModel)]="product.size" name="size" matInput placeholder="Size" />
+    </mat-form-field>
+    <mat-form-field  class="fullWidth">
+      <input [(ngModel)]="product.companyName" name="companyName" matInput placeholder="Company Name" />
+    </mat-form-field>
+    <mat-form-field  class="fullWidth">
+      <input [(ngModel)]="product.productCategory" name="productCategory" matInput placeholder="Product Category" />
+    </mat-form-field>
+    <mat-form-field  class="fullWidth">
+      <input [(ngModel)]="product.url" name="url" matInput placeholder="Url" />
+    </mat-form-field>
+    <mat-form-field  class="fullWidth">
+      <input [(ngModel)]="product.vendorContact" name="vendorContact" matInput placeholder="Vendor Contact" />
+    </mat-form-field>
+  </form>
+</mat-card-content>
+<mat-card-actions>
+    <button (click)="post(product)" *ngIf="!product.productId" mat-button>Post</button>
+    <button (click)="putproduct(product)" *ngIf="product.productId" mat-button>Edit</button>
+    <button (click)="product = {}" *ngIf="product.productId" mat-button>New</button>
+  </mat-card-actions>
+</mat-card>
